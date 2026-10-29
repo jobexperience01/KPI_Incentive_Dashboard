@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>KPI &amp; Incentive Dashboard</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>📊</text></svg>">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#f4f7f5;--card:#fff;--tx:#1d2b26;--mut:#66756e;--bd:#dbe4df;--ac:#2f7d5b;--acs:#e1efe8;--warn:#c0392b;--b1:#2f7d5b;--b2:#4f9d8a;--b3:#d9a441;--b4:#d9783a;--b5:#c0392b}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121a17;--card:#1b2622;--tx:#e6efeb;--mut:#9bb0a7;--bd:#2d3d37;--ac:#5fc29a;--acs:#243a31;--warn:#ff7b6b}}
+:root[data-theme="dark"]{--bg:#121a17;--card:#1b2622;--tx:#e6efeb;--mut:#9bb0a7;--bd:#2d3d37;--ac:#5fc29a;--acs:#243a31;--warn:#ff7b6b}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--card)}
+.w{max-width:1100px;margin:0 auto;padding:0 14px 14px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--card);border-bottom:1px solid var(--bd);display:flex;gap:6px;overflow-x:auto;padding:8px 14px;margin:0 -14px}
+nav button{white-space:nowrap;padding:5px 11px;font-size:13px;border-radius:99px}
+h1{font-size:22px;margin:12px 0 4px}h2{font-size:15px;margin:0 0 10px;color:var(--ac);text-transform:uppercase;letter-spacing:.06em}
+.c{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px;margin:12px 0;scroll-margin-top:56px}
+.g{display:grid;gap:10px}.g4{grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}.g2{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+label{font-size:12px;color:var(--mut);display:block}
+input,select{width:100%;padding:7px 8px;border:1px solid var(--bd);border-radius:8px;background:var(--bg);color:var(--tx);font:inherit}
+input[readonly]{opacity:.75;border-style:dashed}input:disabled{opacity:.4}
+.sw{display:flex;flex-wrap:wrap;gap:4px}.sw select{flex:1;min-width:0;width:auto}.sw button{padding:6px 9px}
+.addbar{display:flex;gap:4px;margin-top:4px;width:100%}.addbar input{min-width:110px}
+.sc{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{padding:5px 6px;border-bottom:1px solid var(--bd);text-align:left;white-space:nowrap}th{color:var(--mut);font-weight:600;font-size:12px}
+td input.n{width:76px}td input.t{min-width:150px}td select{min-width:120px;padding:5px}
+button{font:inherit;font-weight:600;border:1px solid var(--bd);background:var(--card);color:var(--tx);padding:8px 12px;border-radius:10px;cursor:pointer}
+button.p{background:var(--ac);color:#fff;border-color:var(--ac)}button.x{color:var(--warn)}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.row select,.row input{width:auto}
+.k{background:var(--acs);border-radius:12px;padding:10px}.k b{display:block;font-size:22px}.k span{font-size:12px;color:var(--mut)}
+.bar{display:flex;align-items:center;gap:8px;margin:5px 0;font-size:13px}.bar .nm{width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bar .tr{flex:1;background:var(--acs);border-radius:6px;height:16px;overflow:hidden}.bar .fl{height:100%;border-radius:6px}.bar .v{width:92px;text-align:right;font-variant-numeric:tabular-nums}
+.gr{display:inline-block;min-width:24px;text-align:center;border-radius:6px;color:#fff;font-weight:700;padding:1px 6px}
+.chip{display:inline-block;background:var(--acs);border-radius:99px;padding:4px 12px;margin:3px 4px 3px 0;font-size:13px}
+a{color:var(--ac)}small,.m{color:var(--mut);font-size:12px}
+.bb{display:flex;flex-direction:column;gap:6px}
+details{margin:6px 0}details summary{cursor:pointer;font-weight:600}details ol,details ul{margin:6px 0;padding-left:22px}details li{margin:3px 0}
+.ex{background:var(--acs);border-radius:10px;padding:8px 10px;font-size:13px;margin:6px 0}
+</style></head><body><div class="w">
+<nav id="nv"><button data-go="sec-guide">📖 Guide</button><button data-go="sec-import">📥 Import</button><button data-go="sec-setup">1 Setup</button><button data-go="sec-criteria">2 Criteria</button><button data-go="sec-data">3 Employees</button><button data-go="sec-log">4 Log</button><button data-go="sec-dash">5 Dashboard</button><button data-go="sec-inc">6 Incentive</button><button data-go="sec-about">👤 About</button></nav>
+<h1>📊 KPI &amp; Incentive Dashboard</h1>
+<small>For any department: define your own KPI criteria, record data daily or monthly, see employee-wise scores and the incentive split, then download PDF or Excel. Everything runs in your browser.</small>
+
+<div class="c" id="sec-guide"><h2>📖 Guide — how to start a new department from scratch</h2>
+<p class="m" style="margin:0 0 6px">The Television Production department is pre-loaded as a working example (default settings). Follow these steps to build your own department the same way.</p>
+<details open><summary>Quick start (8 steps)</summary><ol>
+<li><b>Add your department.</b> In <i>1 · Setup</i>, open the Department dropdown → <i>➕ Add new…</i> → type the name. You get an empty workspace with a starter category and 3 starter criteria. Add your Plant and Section the same way.</li>
+<li><b>Create employee categories.</b> Open the Employee category dropdown → <i>➕ Add new…</i> for each group that is judged differently (e.g. Executive, Officer, Manager). Each category has its own criteria, employees and incentive pool.</li>
+<li><b>Define the criteria.</b> In <i>2 · Criteria</i> edit, add (<i>+ Add criterion</i>) or remove (✕) rows until they describe how your people are judged. Set each weight (all weights should total 100), the target and the input source.</li>
+<li><b>Add employees.</b> In <i>3 · Employees</i> press <i>+ Add employee</i>, type ID and name and pick a designation (add new designations from the same dropdown).</li>
+<li><b>Enter the data.</b> Criteria set to <i>Manual entry</i> are typed straight into the employee table. Criteria set to <i>Record log</i> are filled automatically from entries you add in <i>4 · Log</i> (daily or weekly).</li>
+<li><b>Check the dashboard.</b> <i>5 · Dashboard</i> shows each employee’s score and grade; <i>6 · Incentive</i> splits the pool. Set the pool and minimum score in the category settings.</li>
+<li><b>Download.</b> Choose this category, all categories combined, or separate files — as PDF or Excel.</li>
+<li><b>Next month.</b> Import last month’s Excel at the top. Departments, categories, criteria, employees and logs return and the period moves forward; add only the new data.</li></ol></details>
+<details><summary>How each criterion type is scored</summary><ul>
+<li><b>Higher is better</b> — full weight when the value reaches the <i>target</i>, proportional below it (sales %, cards earned, supervisor marks out of 10).</li>
+<li><b>Lower is better</b> — full weight up to the <i>target</i> (tolerance), falling in a straight line to 0 at the <i>zero-score value</i> (late days, complaints, errors, red cards, disciplinary cases).</li>
+<li><b>Below category average</b> — full weight at or below the category’s average (or a fixed target if you set one); reduces above it (leave days).</li></ul>
+<p class="m">Score = Σ(weight × result) ÷ Σ weights × 100. Grades: A ≥ 90 (100%), B ≥ 80 (80%), C ≥ 70 (60%), D ≥ 60 (40%), E &lt; 60 (0%). Incentive = pool × (score × grade factor) ÷ the total for all eligible employees in the category.</p></details>
+<details><summary>Example: a Sales department</summary>
+<div class="ex">Category “Sales Executive” → criteria: <b>Sales achievement %</b> (higher, weight 50, target 100, manual) · <b>Customer complaints</b> (lower, weight 20, target 0, zero at 5, log) · <b>Late days</b> (lower, weight 10, target 1, zero at 4, log) · <b>Manager rating /10</b> (higher, weight 20, target 10, manual). Pool 80,000 Tk, minimum score 60.</div></details>
+<details><summary>Good to know</summary><ul>
+<li>Your work is saved in this browser automatically. Download the Excel file regularly as a backup and for next month’s import.</li>
+<li>Only Excel files downloaded from this page can be imported.</li>
+<li>The “Load production defaults” button in <i>2 · Criteria</i> restores the original production criteria for a category.</li>
+<li>Removing a department or category deletes its employees and log — the ✕ button asks for a second tap.</li></ul></details>
+</div>
+
+<div class="c" id="sec-import"><h2>📥 Import previous month</h2>
+<p class="m" style="margin:0 0 8px">Pick last month’s Excel file downloaded from this app. The department, categories, criteria, employees, dropdown lists and logs come back automatically, and the period moves to the next month.</p>
+<div class="row"><input id="imp" type="file" accept=".xlsx,.xls" style="max-width:260px"><select id="imode"><option value="keep">Keep last month’s values</option><option value="reset">Roster only (reset values to 0)</option></select><span id="imm" class="m"></span></div></div>
+
+<div class="c" id="sec-setup"><h2>1 · Report setup</h2>
+<p class="m" style="margin:0 0 8px">Every dropdown ends with “➕ Add new…” — choose it to type a new option. Use ✕ to remove the selected option. Each department keeps its own categories, criteria and log.</p>
+<div class="g g4">
+<div><label>Plant / Company</label><div class="sw"><select id="co" data-list="co"></select><button class="x" data-rm="co" title="Remove selected option">✕</button></div></div>
+<div><label>Department</label><div class="sw"><select id="dep" data-list="dep"></select><button class="x" data-rm="dep" title="Delete this department">✕</button></div></div>
+<div><label>Section (work area)</label><div class="sw"><select id="sec" data-list="sec"></select><button class="x" data-rm="sec" title="Remove selected option">✕</button></div></div>
+<div><label>Employee category</label><div class="sw"><select id="cat" data-list="cat"></select><button class="x" data-rm="cat" title="Delete this category">✕</button></div></div>
+<div><label>Month</label><select id="mo"></select></div>
+<div><label>Year</label><select id="yr"></select></div>
+<div><label>Report date</label><input id="rd" type="date"></div>
+</div>
+<div class="g g4" style="margin-top:10px"><div><label>Incentive pool for <span class="cn"></span> (Tk)</label><input id="pool" type="number"></div><div><label>Min. score for incentive</label><input id="minS" type="number"></div></div>
+</div>
+
+<div class="c" id="sec-criteria"><h2>2 · <span class="cn"></span> KPI criteria (customize)</h2>
+<p class="m" style="margin:0 0 8px">Defaults come from the Panel Assembly KPI sheet. Edit any row, add your own criteria or remove ones you don’t need — scores recalculate instantly. <b>Full-score value</b> = the target; <b>Zero-score value</b> applies to “Lower is better” only.</p>
+<div class="sc"><table><thead><tr><th>Criterion</th><th>Type</th><th>Weight</th><th>Full-score value</th><th>Zero-score value</th><th>Input source</th><th>Why it is measured / notes</th><th></th></tr></thead><tbody id="ce"></tbody></table></div>
+<div class="row" style="margin-top:8px"><button class="p" id="kadd">+ Add criterion</button><button id="kprod">Load production defaults</button><button class="x" id="kclr">Remove all</button><span id="wsum" class="m"></span></div>
+<div class="sc" style="margin-top:8px"><table><thead><tr><th>Criterion</th><th>Scoring rule in use</th><th>Weight</th></tr></thead><tbody id="cr"></tbody></table></div>
+</div>
+
+<div class="c" id="sec-data"><h2>3 · <span class="cn"></span> employee data</h2>
+<div class="row" style="margin-bottom:8px"><button class="p" id="add">+ Add employee</button><button id="clr" class="x">Clear this category</button><span class="m">Columns marked 🗒 (dashed boxes) are filled automatically from the record log.</span></div>
+<div class="sc"><table><thead id="th"></thead><tbody id="tb"></tbody></table></div>
+</div>
+
+<div class="c" id="sec-log"><h2>4 · Daily / weekly record log</h2>
+<p class="m" style="margin:0 0 8px">Choose a criterion whose input source is “Record log”, then a date and employee, and add an entry (e.g. a late arrival, a complaint, a defect found by QC). Entries of the selected month are totalled per employee automatically.</p>
+<div class="g g4">
+<div><label>Criterion</label><select id="lk"></select></div>
+<div><label>Date</label><input id="ld" type="date"></div>
+<div><label>Employee (this category)</label><select id="le"></select></div>
+<div><label>Quantity / days</label><input id="lq" type="number" min="0" step="any" value="1"></div>
+<div><label>Found / reported by</label><div class="sw"><select id="lb" data-list="by"></select></div></div>
+<div><label>Note (optional)</label><input id="ln" type="text"></div>
+</div>
+<div class="row" style="margin-top:8px"><button class="p" id="la">+ Add entry</button><span id="lm" class="m"></span></div>
+<div class="row" style="margin-top:10px"><label style="display:inline">View:</label><select id="lf"></select><select id="lp"><option value="month">Selected month</option><option value="week">7 days to report date</option><option value="today">Report date only</option><option value="all">All dates</option></select><span id="lc" class="m"></span></div>
+<div class="sc" style="max-height:340px;overflow-y:auto"><table><thead><tr><th>Date</th><th>Criterion</th><th>ID</th><th>Name</th><th>Qty</th><th>By</th><th>Note</th><th></th></tr></thead><tbody id="lt"></tbody></table></div>
+</div>
+
+<div class="c" id="sec-dash"><h2>5 · Summary dashboard — <span class="cn"></span></h2>
+<div class="g g4" id="kp"></div>
+<div class="g g2" style="margin-top:12px"><div><p class="m">Employee-wise score</p><div id="bars"></div></div><div><p class="m">Grade distribution</p><div id="gd"></div><p class="m" style="margin-top:10px">Grades: A ≥ 90 (100%) · B ≥ 80 (80%) · C ≥ 70 (60%) · D ≥ 60 (40%) · E &lt; 60 (0%)</p></div></div>
+<p class="m" style="margin-top:12px">All categories in this department</p>
+<div class="sc"><table><thead><tr><th>Category</th><th>Employees</th><th>Avg score</th><th>Pool (Tk)</th><th>Distributed (Tk)</th></tr></thead><tbody id="ov"></tbody></table></div>
+</div>
+
+<div class="c" id="sec-inc"><h2>6 · Incentive distribution — <span class="cn"></span></h2>
+<div class="sc"><table><thead><tr><th>Rank</th><th>ID</th><th>Name</th><th>Designation</th><th>Score</th><th>Grade</th><th>Factor</th><th>Share</th><th>Incentive (Tk)</th></tr></thead><tbody id="inc"></tbody></table></div>
+<p class="m">Incentive = pool × (score × grade factor) ÷ sum of all eligible employees’ (score × grade factor), calculated within each category.</p>
+<div class="row" style="margin-top:10px"><label style="display:inline">Download:</label>
+<select id="dm"><option value="cur">This category only</option><option value="all">All categories — combined in one file</option><option value="sep">All categories — separate files</option></select>
+<button class="p" id="pdf">⬇ PDF</button><button class="p" id="xls">⬇ Excel</button><span id="st" class="m"></span></div>
+<p class="m">Tip: keep the Excel file — next month, import it at the top of this page to start with everyone already listed.</p>
+</div>
+
+<div class="c bb" id="sec-about"><h2>👤 Built by</h2>
+<div style="font-size:19px;font-weight:700">Md Shahariar Ahmed</div><div class="m" style="font-size:14px">Developer</div>
+<div><span class="chip">📜 EIT (APEGS)</span><span class="chip">🥋 LSS Green Belt</span><span class="chip">🎓 M.Eng Industrial Systems Engineering</span><span class="chip">🎓 B.Sc Mechanical Engineering</span></div>
+<div class="m" style="font-size:14px">Designed and built to make employee KPI scoring and incentive distribution fast, private, and free.</div>
+<hr style="border:0;border-top:1px solid var(--bd);width:100%">
+<h2>✉️ Contact &amp; feedback</h2>
+<div>📧 <a href="mailto:jobexperience01@gmail.com">jobexperience01@gmail.com</a></div>
+<div>🆔 <a href="https://orcid.org/0009-0003-6480-4817" target="_blank" rel="noopener">ORCID: 0009-0003-6480-4817</a></div>
+<div class="m" style="font-size:14px">Found a bug or have a feature request? Reach out any time.</div>
+<div class="row"><button id="sh">🔗 Share this app</button><button id="fb">📝 Send feedback</button><span id="sm" class="m"></span></div>
+<div class="m" style="text-align:center;margin-top:8px">KPI &amp; Incentive Dashboard · v2.0.0</div>
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
+const num=v=>isFinite(parseFloat(v))?parseFloat(v):0;
+const f2=v=>v.toFixed(2),money=v=>Math.round(v).toLocaleString('en-US');
+const KT={higher:'Higher is better',lower:'Lower is better',avg:'Below category average'};
+const MN=['January','February','March','April','May','June','July','August','September','October','November','December'];
+const prodK=()=>[
+ {id:'green',name:'Green card (defect caught)',type:'higher',w:20,t:10,l:0,src:'log',why:'Catch our own mistakes — do not let anyone else detain us (target at least 10 incidents per month).'},
+ {id:'red',name:'Red card',type:'lower',w:20,t:0,l:3,src:'log',why:'Keep eyes, hands and attention in a single direction (maximum 3 red cards in a month).'},
+ {id:'late',name:'Late in work place',type:'lower',w:10,t:1,l:3,src:'log',why:'Not being late in the work place; 1 day of delay can be tolerated.'},
+ {id:'leave',name:'Leave (CL+AL+ML)',type:'avg',w:15,t:0,l:0,src:'log',why:'Maintain departmental harmony by taking only essential leave; the sectional average is the cut-off.'},
+ {id:'disc',name:'Disciplinary case',type:'lower',w:10,t:0,l:1,src:'log',why:'No disciplinary issue is accepted; show professionalism to achieve the company’s goal, vision and mission.'},
+ {id:'dir',name:'Direct supervisor marks (/10)',type:'higher',w:12.5,t:10,l:0,src:'manual',why:'Superiors’ evaluation (25% of marks in total): i) excellence in operational skills ii) positive “can-do” attitude with good manners iii) punctual in assigned tasks.'},
+ {id:'col',name:'Collateral supervisor marks (/10)',type:'higher',w:12.5,t:10,l:0,src:'manual',why:'Same criteria, marked by the collateral supervisor.'}];
+const starterK=()=>[{id:'perf',name:'Target achievement (%)',type:'higher',w:50,t:100,l:0,src:'manual',why:'Actual result against the monthly target.'},{id:'late',name:'Late days',type:'lower',w:20,t:1,l:4,src:'log',why:'Punctuality; one late day tolerated.'},{id:'rate',name:'Supervisor rating (/10)',type:'higher',w:30,t:10,l:0,src:'manual',why:'Manager’s evaluation of quality, attitude and teamwork.'}];
+const mkE=a=>({id:String(a[0]),name:a[1],des:a[2],v:a[3]||{}});
+const mkC=(des,rows,pool,K)=>({des,E:rows.map(mkE),K:K||prodK(),pool:pool||100000,minS:60});
+const roster=(s,d)=>s.split(';').map(x=>{const a=x.split('|');return[a[0],a[1],d]});
+const WK='6685|Khandaker Shahidul Islam;3274|Md. Ahmmed Hossain Khandoker;11862|Md. Jahidul Islam;2956|Md. Ariful Islam;20430|Muhammad Motiur Rahman;14401|Ariful Islam;20199|Abdul Halim;7360|Md. Abdur Rahim Khan;2758|Md. Lutfor Rahman;3092|Sohel (Babu);14539|Samirul Islam;6142|Raju Ahmed Khan;17248|Siddiqe;20983|Md. Rabin Ahmed;21571|Md. Kowser Hosen;21625|Johurul Islam;21615|Rokon;21623|Md. Jahidul Islam;14146|Md Rony Ahamed;12176|Md. Alomgir Hosen;13883|Mohammad Ali;17238|Md. Ferdous;20438|Md. Abdul Halim;21747|Ariful Islam;21617|Mehedi Hasan;21418|Aminul Islam;21622|Sumon Mondal;23287|Md. Kawsar Ahmed;21573|Md. Shorif Hosen;35347|Imam Al Mamun;37403|Md. Zahurul Islam;35343|Shohan;36789|Md. Sohel Rana;37304|Md. Hafizur Rahman;37306|Salauddin Miah;38968|Md. Shohidul Islam;38970|Md. Shepan Miah;38973|Rony Sikder;39088|Ashraful Islam;40444|Mukul Hosen;40445|Zahidul Islam;40447|Md. Kabir Hossain;40384|Sajib Miah;40402|Md. Manik Miah;41430|Md. Samsul Alom;41459|Md. Lavlu Miah;41460|Abdul Alim;41501|Md. Abdul Mottalib;41652|Shahadat Hosen;41504|Md. Sharif Hossain;42255|Md. Sobhan Mondol;42206|Apal Chandro;42704|Md. Sajib Rana;43070|Ayub Hossen;D-25219|Md. Rofiqul Islam;D-25753|Robiul Awul;D-26762|Ripon Hossain;D-27469|Sifat Shahariar Alif;D-30687|Lanju Mia;D-31369|Sirazul Islam;D-31371|Md. Sahed Sarker;D-32063|Iftekhar Hossain;D-13894|Ranjan Chandra;D-15167|Mustafizur Rahaman Sagor;D-15537|Al Amin Sheikh;D-22102|Motiar Rahman;D-19389|Md Shariful Islam;D-19709|Md. Rakib Miah;D-19879|Md. Sajjad Hosen;D-20051|Masum Patwary;D-21035|Md. Zubaer Zuboraz;D-21109|Md. Roton Mia;D-21124|Abu Sayed;D-21152|Md. Touhidul Islam (Tapan);D-21344|Sundar Ali;D-21403|Mizanur Rahman;D-21487|Md. Aftabul Islam;D-16664|Md. Najmul Hasan;D-16870|Md. Abul Kalam;D-16887|Md. Habibur Rahman;D-16949|Md. Sawkat Hossen;D-17014|Md. Soriful Islam;D-17332|Rakibul Islam';
+const SV='4278|Md. Khayrul Islam;16472|Shohel Rana;10778|Md. Nazrul Islam;14156|Shamim Reza;43670|Md. Nazmul;44255|Md. Rayhan Mia;14408|Ssri Bojon Chandra';
+const MG='43740|Md. Shahariar Ahmed;4653|Md. Shahadat Hossen (Sohan)';
+function seedLog(){const L=[],add=(k,by,s)=>s.split(' ').forEach(t=>{const[i,q]=t.split(':');L.push({d:'2021-04-30',id:i,k,q:+q,by,note:'From April 2021 KPI sheet'})});
+ add('red','Production Inspector','D-30687:5 D-17332:3 43070:1 40384:4 40444:10 39088:4 D-26762:5 D-31371:5 7360:3 11862:2 41501:2 D-15537:2 D-19389:10 41652:2 23287:3');
+ add('red','QC','D-32063:1 D-17332:1 38973:5 D-15167:2 40445:8 21571:21 38793:1 14401:2 D-31371:4 36789:1 14146:4');
+ add('green','Production Inspector','38973:7 38968:4 D-15167:6 7360:12 40444:32 38793:3 39088:70 14401:6 D-26762:33 40445:2 D-31371:153 21571:8 D-17332:3 11862:24 D-19879:2 41501:7 20430:2 14146:5 D-19389:79 21625:10 37304:2 40402:17 23287:4');
+ add('late','','21571:1 7360:2 D-23491:1 23287:2 D-17332:1 39088:2 44255:2 D-19389:2 43670:1 11862:1 38973:1 14146:2 40444:1 16472:1 21617:1 D-21344:1 19389:1 D-20051:3 D-31371:1 D-21487:1 36789:1 D-27469:1');
+ add('disc','','3274:1');
+ add('leave','','2758:4 2956:3 3092:5 3274:6 4278:7 4653:9 6142:2 6685:5 7360:2 10778:19 11862:3 13883:3 14146:3 14156:3 14401:4 14408:3 14539:3 16472:12 17248:3 20199:4 20430:7 20438:4 20983:4 21418:2 21571:6 21573:6 21615:5 21617:6 21622:5 21623:5 21625:3 21747:4 23287:9 35343:7 35347:3 36789:6 37304:5 37306:2 37403:5 38968:4 38970:4 38973:3 39088:7 40384:1 40402:4 40444:3 40445:3 40447:2 41430:3 41459:2 41460:3 41504:1 41652:4 42206:3 42255:4 42704:2 43070:6 43670:3 43740:12');
+ return L}
+
+const newDept=()=>({cats:{Staff:mkC(['Staff','Officer','Executive'],[],50000,starterK())},log:[],cur:'Staff'});
+function defState(){const w=mkC(['Worker','Technician'],roster(WK,'Worker'),100000);w.E[0].v={dir:10,col:8};
+ const n=new Date();
+ return{lists:{co:['Walton Hi-Tech Industries Ltd. (WTV)'],sec:['Panel Assembly','Supervision Level','Production Worker','Quality Control'],by:['Production Inspector','QC']},
+ sel:{co:'Walton Hi-Tech Industries Ltd. (WTV)',dep:'Television Production Department',sec:'Panel Assembly',by:'Production Inspector'},
+ mo:'April',yr:'2021',rd:'2021-04-30',
+ D:{'Television Production Department':{cur:'Worker',log:seedLog(),cats:{Worker:w,Supervisor:mkC(['Supervisor','Line Leader'],roster(SV,'Supervisor'),60000),Manager:mkC(['Manager','Coordinator'],roster(MG,'Manager'),40000)}}}}}
+let S=defState();
+try{const s=JSON.parse(localStorage.getItem('kpi_dash4')||'null');if(s&&s.D&&s.sel&&s.D[s.sel.dep]&&s.lists)S=s}catch(e){}
+function setRefs(){const d=S.D[S.sel.dep];if(!d.cats[d.cur])d.cur=Object.keys(d.cats)[0];S.cats=d.cats;S.log=d.log;S.cur=d.cur}
+function setCur(n){S.cur=n;S.D[S.sel.dep].cur=n}
+setRefs();
+const cur=()=>S.cats[S.cur];
+const grade=s=>s>=90?['A',1,'--b1']:s>=80?['B',.8,'--b2']:s>=70?['C',.6,'--b3']:s>=60?['D',.4,'--b4']:['E',0,'--b5'];
+const monthKey=()=>S.yr+'-'+String(MN.indexOf(S.mo)+1).padStart(2,'0');
+const rule=k=>k.type==='lower'?`Full weight up to ${k.t}; falls to 0 at ${k.l}`:k.type==='avg'?(k.t>0?`Full at or below ${k.t}; reduces above`:'Full at or below the category average; reduces above'):`Full weight at ${k.t} or more; proportional below`;
+function critName(id){for(const n in S.cats){const k=S.cats[n].K.find(x=>x.id===id);if(k)return k.name}return id}
+function applyLogs(c){const mk=monthKey(),sum={};S.log.forEach(l=>{if(l.d&&l.d.slice(0,7)===mk){const k=l.k+'|'+l.id;sum[k]=(sum[k]||0)+num(l.q)}});
+ c.K.forEach(k=>{if(k.src==='log')c.E.forEach(e=>e.v[k.id]=sum[k.id+'|'+e.id]||0)})}
+function calc(c){
+ applyLogs(c);
+ const K=c.K,E=c.E,n=E.length,sw=K.reduce((a,k)=>a+num(k.w),0)||100,av={};
+ K.forEach(k=>av[k.id]=n?E.reduce((a,e)=>a+(e.v[k.id]||0),0)/n:0);
+ const R=E.map(e=>{const p={};
+  K.forEach(k=>{const v=e.v[k.id]||0;let f;
+   if(k.type==='lower')f=v<=k.t?1:(k.l>k.t?Math.max(0,1-(v-k.t)/(k.l-k.t)):0);
+   else if(k.type==='avg'){const cut=k.t>0?k.t:av[k.id];f=v<=cut?1:Math.max(0,1-(v-cut)/Math.max(cut,1))}
+   else f=k.t>0?Math.min(v/k.t,1):1;
+   p[k.id]=k.w*f});
+  const score=Object.values(p).reduce((a,b)=>a+b,0)/sw*100,g=grade(score);
+  return{e,p,score,g,pts:score>=c.minS?score*g[1]:0};
+ });
+ const tp=R.reduce((a,r)=>a+r.pts,0);
+ R.forEach(r=>{r.share=tp?r.pts/tp:0;r.pay=c.pool*r.share});
+ return{R,n,mean:n?R.reduce((a,r)=>a+r.score,0)/n:0,paid:R.reduce((a,r)=>a+r.pay,0),sorted:[...R].sort((a,b)=>b.score-a.score),sw};
+}
+function opts(list,v){const a=!v||list.includes(v)?list:[...list,v];return a.map(x=>`<option${x===v?' selected':''}>${esc(x)}</option>`).join('')+'<option value="__add__">➕ Add new…</option>'}
+function fill(id,list,v){const el=$(id);el.innerHTML=opts(list,v);el.value=v;el.dataset.v=v}
+function renderSetup(){
+ ['co','sec'].forEach(k=>fill(k,S.lists[k],S.sel[k]));
+ fill('dep',Object.keys(S.D),S.sel.dep);fill('cat',Object.keys(S.cats),S.cur);
+ $('mo').innerHTML=MN.map(m=>`<option>${m}</option>`).join('');$('mo').value=S.mo;
+ const y0=Math.min(+S.yr,new Date().getFullYear()-4);$('yr').innerHTML=Array.from({length:16},(_,k)=>`<option>${y0+k}</option>`).join('');
+ if(![...$('yr').options].some(o=>o.value===S.yr))$('yr').add(new Option(S.yr));$('yr').value=S.yr;
+ $('rd').value=S.rd;
+}
+function renderCat(){const c=cur();document.querySelectorAll('.cn').forEach(e=>e.textContent=S.cur);$('pool').value=c.pool;$('minS').value=c.minS}
+function renderCrit(){
+ const c=cur();
+ $('ce').innerHTML=c.K.map((k,i)=>{const a=`data-ci="${i}" data-cf=`;return `<tr><td><input class="t" ${a}"name" value="${esc(k.name)}"></td><td><select ${a}"type">${Object.entries(KT).map(([v,l])=>`<option value="${v}"${k.type===v?' selected':''}>${l}</option>`).join('')}</select></td><td><input class="n" type="number" min="0" step="any" ${a}"w" value="${k.w}"></td><td><input class="n" type="number" min="0" step="any" ${a}"t" value="${k.t}"></td><td><input class="n" type="number" min="0" step="any" ${a}"l" value="${k.l}"${k.type==='lower'?'':' disabled'}></td><td><select ${a}"src"><option value="log"${k.src==='log'?' selected':''}>Record log</option><option value="manual"${k.src==='manual'?' selected':''}>Manual entry</option></select></td><td><input class="t" style="min-width:260px" ${a}"why" value="${esc(k.why||'')}"></td><td><button class="x" data-kdel="${i}">✕</button></td></tr>`}).join('')||'<tr><td colspan="8" class="m">No criteria yet — press “+ Add criterion”.</td></tr>';
+}
+function renderHead(){const c=cur();$('th').innerHTML=`<tr><th>ID</th><th>Name</th><th>Designation</th>${c.K.map(k=>`<th title="${esc(k.why||'')}">${esc(k.name)}${k.src==='log'?' 🗒':''}</th>`).join('')}<th>Score</th><th></th></tr>`}
+function buildTable(){
+ const c=cur();renderHead();
+ $('tb').innerHTML=c.E.map((e,i)=>`<tr><td><input class="n" data-i="${i}" data-f="id" value="${esc(e.id)}"></td><td><input class="t" data-i="${i}" data-f="name" value="${esc(e.name)}"></td><td><select data-list="des" data-i="${i}" data-v="${esc(e.des)}">${opts(c.des,e.des)}</select></td>${c.K.map(k=>`<td><input class="n" type="number" min="0" step="any"${k.src==='log'?' readonly title="Filled from the record log"':''} data-i="${i}" data-k="${k.id}" value="${e.v[k.id]||0}"></td>`).join('')}<td><b id="s${i}"></b></td><td><button class="x" data-del="${i}">✕</button></td></tr>`).join('');
+ renderLogForm();
+}
+function who(id){for(const k in S.cats){const e=S.cats[k].E.find(x=>x.id===String(id));if(e)return e.name}return '(not in roster)'}
+function renderLogForm(){
+ const c=cur(),el=$('le'),v=el.value,lk=$('lk'),kv=lk.value,lf=$('lf'),fv=lf.value;
+ el.innerHTML=c.E.map(e=>`<option value="${esc(e.id)}">${esc(e.id)} – ${esc(e.name)}</option>`).join('');if(v)el.value=v;
+ const lg=c.K.filter(k=>k.src==='log');
+ lk.innerHTML=lg.map(k=>`<option value="${esc(k.id)}">${esc(k.name)}</option>`).join('')||'<option value="">(no log criteria — set a criterion to “Record log”)</option>';if(kv)lk.value=kv;
+ const all=[];Object.values(S.cats).forEach(x=>x.K.forEach(k=>{if(!all.find(a=>a[0]===k.id))all.push([k.id,k.name])}));
+ lf.innerHTML='<option value="all">All criteria</option>'+all.map(a=>`<option value="${esc(a[0])}">${esc(a[1])}</option>`).join('');lf.value=fv&&[...lf.options].some(o=>o.value===fv)?fv:'all';
+ fill('lb',S.lists.by,S.sel.by);if(!$('ld').value)$('ld').value=S.rd;
+}
+function inPeriod(d){const p=$('lp').value;if(p==='all')return true;if(p==='month')return d.slice(0,7)===monthKey();if(p==='today')return d===S.rd;const t=new Date(S.rd),f=new Date(d);return f<=t&&(t-f)/864e5<7}
+function renderLog(){
+ const fl=$('lf').value,rows=S.log.map((l,i)=>[l,i]).filter(([l])=>l.d&&inPeriod(l.d)&&(fl==='all'||l.k===fl)).sort((a,b)=>b[0].d.localeCompare(a[0].d));
+ $('lc').textContent=rows.length+' entries'+(rows.length>300?' (showing 300)':'');
+ $('lt').innerHTML=rows.slice(0,300).map(([l,i])=>`<tr><td>${l.d}</td><td>${esc(critName(l.k))}</td><td>${esc(l.id)}</td><td>${esc(who(l.id))}</td><td>${l.q}</td><td>${esc(l.by||'')}</td><td>${esc(l.note||'')}</td><td><button class="x" data-ld="${i}">✕</button></td></tr>`).join('')||'<tr><td colspan="8" class="m">No entries for this view.</td></tr>';
+}
+function update(){
+ const c=cur(),d=calc(c),R=d.R,n=d.n,top=d.sorted[0];
+ renderHead();
+ document.querySelectorAll('input[readonly][data-k]').forEach(el=>{const e=c.E[+el.dataset.i];if(e)el.value=e.v[el.dataset.k]||0});
+ R.forEach((r,i)=>{const el=$('s'+i);if(el)el.textContent=f2(r.score)});
+ $('kp').innerHTML=[['Employees',n],['Average score',f2(d.mean)],['Top performer',top?top.e.name.split(' ').slice(0,2).join(' ')+' ('+f2(top.score)+')':'–'],['Eligible for incentive',R.filter(r=>r.pts>0).length+' / '+n],['Pool distributed','Tk '+money(d.paid)],['KPI criteria',c.K.length]].map(k=>`<div class="k"><b>${k[1]}</b><span>${k[0]}</span></div>`).join('');
+ $('bars').innerHTML=d.sorted.map(r=>`<div class="bar"><div class="nm" title="${esc(r.e.name)}">${esc(r.e.name)}</div><div class="tr"><div class="fl" style="width:${Math.max(0,Math.min(100,r.score))}%;background:var(${r.g[2]})"></div></div><div class="v">${f2(r.score)} <span class="gr" style="background:var(${r.g[2]})">${r.g[0]}</span></div></div>`).join('')||'<p class="m">No data.</p>';
+ const cnt={};R.forEach(r=>cnt[r.g[0]]=(cnt[r.g[0]]||0)+1);
+ $('gd').innerHTML=['A','B','C','D','E'].map(g=>{const k=cnt[g]||0,col=grade({A:95,B:85,C:75,D:65,E:0}[g])[2];return `<div class="bar"><div class="nm" style="width:30px"><span class="gr" style="background:var(${col})">${g}</span></div><div class="tr"><div class="fl" style="width:${n?k/n*100:0}%;background:var(${col})"></div></div><div class="v">${k}</div></div>`}).join('');
+ $('ov').innerHTML=Object.keys(S.cats).map(k=>{const x=S.cats[k],y=calc(x);return `<tr><td><b>${esc(k)}</b></td><td>${y.n}</td><td>${f2(y.mean)}</td><td>${money(x.pool)}</td><td>${money(y.paid)}</td></tr>`}).join('');
+ $('inc').innerHTML=d.sorted.map((r,i)=>`<tr><td>${i+1}</td><td>${esc(r.e.id)}</td><td>${esc(r.e.name)}</td><td>${esc(r.e.des)}</td><td>${f2(r.score)}</td><td><span class="gr" style="background:var(${r.g[2]})">${r.g[0]}</span></td><td>${r.score>=c.minS?r.g[1]:0}</td><td>${(r.share*100).toFixed(1)}%</td><td><b>${money(r.pay)}</b></td></tr>`).join('');
+ $('cr').innerHTML=c.K.map(k=>`<tr><td><b>${esc(k.name)}</b></td><td>${esc(rule(k))}</td><td>${k.w}</td></tr>`).join('');
+ $('wsum').innerHTML=d.sw===100?`Total weight: 100 ✓`:`<span style="color:var(--warn)">Total weight ${d.sw} — scores are scaled to 100.</span>`;
+ renderLog();
+ try{const o={...S};delete o.cats;delete o.log;delete o.cur;localStorage.setItem('kpi_dash4',JSON.stringify(o))}catch(e){}
+}
+function renderAll(){renderSetup();renderCat();renderCrit();buildTable();update()}
+
+function openAdd(sel){
+ document.querySelectorAll('.addbar').forEach(b=>b.remove());
+ sel.value=sel.dataset.v;
+ const b=document.createElement('div');b.className='addbar';
+ b.innerHTML='<input placeholder="New option name"><button class="p">Add</button><button>Cancel</button>';
+ sel.parentNode.appendChild(b);
+ const inp=b.querySelector('input'),[ok,no]=b.querySelectorAll('button');
+ const go=()=>{const v=inp.value.trim();if(v)addOpt(sel,v)};
+ ok.onclick=go;no.onclick=()=>b.remove();
+ inp.onkeydown=e=>{if(e.key==='Enter')go();if(e.key==='Escape')b.remove()};inp.focus();
+}
+function addOpt(sel,v){
+ const k=sel.dataset.list;
+ if(k==='dep'){if(!S.D[v])S.D[v]=newDept();S.sel.dep=v;setRefs()}
+ else if(k==='cat'){if(!S.cats[v])S.cats[v]=mkC([v],[],50000,starterK());setCur(v)}
+ else if(k==='des'){const c=cur();if(!c.des.includes(v))c.des.push(v);c.E[sel.dataset.i].des=v}
+ else{if(!S.lists[k].includes(v))S.lists[k].push(v);S.sel[k]=v}
+ renderAll();
+}
+document.addEventListener('change',ev=>{const t=ev.target,k=t.dataset.list;if(!k)return;
+ if(t.value==='__add__')return openAdd(t);
+ if(k==='dep'){S.sel.dep=t.value;setRefs();renderAll()}
+ else if(k==='cat'){setCur(t.value);renderAll()}
+ else if(k==='des'){cur().E[t.dataset.i].des=t.value;t.dataset.v=t.value;update()}
+ else{S.sel[k]=t.value;t.dataset.v=t.value;update()}
+});
+document.addEventListener('input',ev=>{const t=ev.target,c=cur();
+ if(t.dataset.cf){const k=c.K[+t.dataset.ci],f=t.dataset.cf;k[f]=['w','t','l'].includes(f)?num(t.value):t.value;
+  if(f==='type'||f==='src'){renderCrit();buildTable()}update()}
+ else if(t.dataset.k){c.E[t.dataset.i].v[t.dataset.k]=num(t.value);update()}
+ else if(t.dataset.f){c.E[t.dataset.i][t.dataset.f]=t.value;update()}
+ else if(t.id==='pool'){c.pool=num(t.value);update()}
+ else if(t.id==='minS'){c.minS=num(t.value);update()}
+ else if(['mo','yr','rd'].includes(t.id)){S[t.id]=t.value;update()}
+ else if(t.id==='lf'||t.id==='lp')renderLog();
+});
+document.addEventListener('click',ev=>{const t=ev.target,c=cur();
+ if(t.dataset.go){const el=$(t.dataset.go);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});return}
+ if(t.dataset.del!==undefined){c.E.splice(+t.dataset.del,1);buildTable();update()}
+ if(t.dataset.kdel!==undefined){c.K.splice(+t.dataset.kdel,1);renderCrit();buildTable();update()}
+ if(t.dataset.ld!==undefined){S.log.splice(+t.dataset.ld,1);update()}
+ const rk=t.dataset.rm;if(!rk)return;
+ if(rk==='cat'||rk==='dep'){
+  const ks=Object.keys(rk==='cat'?S.cats:S.D);
+  if(ks.length<2){$('st').textContent='Keep at least one '+(rk==='cat'?'category':'department')+'.';return}
+  if(!t.dataset.arm){t.dataset.arm=1;t.textContent='Sure?';setTimeout(()=>{t.textContent='✕';delete t.dataset.arm},3000);return}
+  if(rk==='cat'){delete S.cats[S.cur];setCur(Object.keys(S.cats)[0])}
+  else{delete S.D[S.sel.dep];S.sel.dep=Object.keys(S.D)[0];setRefs()}
+  renderAll();
+ }else{
+  const l=S.lists[rk];if(l.length<2)return;
+  S.lists[rk]=l.filter(x=>x!==S.sel[rk]);S.sel[rk]=S.lists[rk][0];renderAll();
+ }
+});
+$('add').onclick=()=>{const c=cur();c.E.push(mkE(['','New employee',c.des[0]||'']));buildTable();update()};
+$('clr').onclick=()=>{cur().E=[];buildTable();update()};
+$('kadd').onclick=()=>{cur().K.push({id:'k'+Date.now().toString(36),name:'New criterion',type:'higher',w:10,t:10,l:0,src:'manual',why:''});renderCrit();buildTable();update()};
+$('kprod').onclick=()=>{cur().K=prodK();renderCrit();buildTable();update()};
+$('kclr').onclick=()=>{cur().K=[];renderCrit();buildTable();update()};
+$('la').onclick=()=>{const id=$('le').value,d=$('ld').value,k=$('lk').value;if(!id||!d||!k){$('lm').textContent='Pick a criterion, a date and an employee.';return}
+ S.log.push({d,k,id,q:num($('lq').value)||1,by:S.sel.by,note:$('ln').value.trim()});$('ln').value='';$('lm').textContent='Entry added.';update()};
+
+/* ---------- import ---------- */
+function importWB(buf,keep){
+ const wb=XLSX.read(buf,{type:'array'});let nc=0,ne=0,per='',dep=S.sel.dep;
+ const rows=n=>XLSX.utils.sheet_to_json(wb.Sheets[n],{header:1,defval:''});
+ if(wb.Sheets.Summary){const r=rows('Summary');if(r[0]&&r[0][0])S.sel.co=String(r[0][0]);r.forEach(x=>{if(x[0]==='Department')dep=String(x[1]);if(x[0]==='Section')S.sel.sec=String(x[1]);if(x[0]==='Period')per=String(x[1])})}
+ if(!S.D[dep])S.D[dep]={cats:{},log:[],cur:''};
+ const D=S.D[dep];
+ wb.SheetNames.forEach(n=>{
+  const r=rows(n);
+  if(n==='Lists'){r.slice(1).forEach(x=>['co','sec','by'].forEach((k,i)=>{const v=String(x[[0,2,3][i]]||'').trim();if(v&&!S.lists[k].includes(v))S.lists[k].push(v)}));return}
+  if(n==='Log'){const keys=new Set(D.log.map(l=>[l.d,l.k,l.id,l.q,l.by].join('|')));
+   r.slice(1).forEach(x=>{const l={d:String(x[0]),k:String(x[1]),id:String(x[2]),q:num(x[3]),by:String(x[4]||''),note:String(x[5]||'')};const k=[l.d,l.k,l.id,l.q,l.by].join('|');if(l.d&&l.k&&!keys.has(k)){keys.add(k);D.log.push(l)}});return}
+  if(!r[0]||r[0][0]!=='Category')return;
+  const nm=String(r[0][1]).trim(),c=mkC([],[],100000,[]);
+  const pr=r.find(x=>x[0]==='Pool')||[];c.pool=num(pr[1])||c.pool;c.minS=pr[3]===undefined||pr[3]===''?60:num(pr[3]);
+  c.des=(r.find(x=>x[0]==='Designations')||[]).slice(1).map(String).filter(Boolean);
+  r.filter(x=>x[0]==='Criterion').forEach(x=>c.K.push({id:String(x[1]),name:String(x[2]),type:String(x[3]),w:num(x[4]),t:num(x[5]),l:num(x[6]),src:String(x[7]),why:String(x[8]||'')}));
+  const hi=r.findIndex(x=>x[0]==='Rank');if(hi<0)return;const H=r[hi],ix=h=>H.indexOf(h);
+  for(let i=hi+1;i<r.length;i++){const x=r[i];if(x[ix('ID')]===''&&x[ix('Name')]==='')continue;
+   const v={};c.K.forEach((k,j)=>v[k.id]=keep?num(x[4+j]):0);
+   const e=mkE([x[ix('ID')],String(x[ix('Name')]),String(x[ix('Designation')]),v]);
+   c.E.push(e);ne++;if(e.des&&!c.des.includes(e.des))c.des.push(e.des)}
+  D.cats[nm]=c;nc++;
+ });
+ if(!nc){$('imm').textContent='No categories found. Please use an Excel file downloaded from this app.';return}
+ ['co','sec'].forEach(k=>{if(S.sel[k]&&!S.lists[k].includes(S.sel[k]))S.lists[k].push(S.sel[k])});
+ S.sel.dep=dep;if(!D.cats[D.cur])D.cur=Object.keys(D.cats)[0];setRefs();
+ const p=per.split(' ');let idx=MN.indexOf(p[0]);
+ if(idx>=0&&+p[1]){let y=+p[1];idx++;if(idx>11){idx=0;y++}S.mo=MN[idx];S.yr=String(y);S.rd=y+'-'+String(idx+1).padStart(2,'0')+'-01';$('ld').value=''}
+ renderAll();
+ $('imm').textContent=`Imported ${nc} categor${nc>1?'ies':'y'} and ${ne} employees into “${dep}”. Period set to ${S.mo} ${S.yr} — add this month’s data.`;
+}
+$('imp').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();
+ r.onload=()=>{try{importWB(r.result,$('imode').value==='keep')}catch(err){$('imm').textContent='Could not read this file. Use an Excel file downloaded from this app.'}e.target.value=''};r.readAsArrayBuffer(f)};
+renderAll();
+
+/* ---------- exports ---------- */
+const ttl=()=>`${S.sel.sec} – KPI Report for ${S.mo} ${S.yr}`;
+const safe=s=>String(s).replace(/[^\w\-]+/g,'_');
+function pdfFile(names){
+ const doc=new jspdf.jsPDF({orientation:'landscape'});
+ names.forEach((nm,k)=>{
+  if(k)doc.addPage();const c=S.cats[nm],d=calc(c);
+  doc.setFontSize(15);doc.text(S.sel.co+' – '+S.sel.dep,14,15);
+  doc.setFontSize(11);doc.text(ttl()+'   |   Report date: '+S.rd,14,22);
+  doc.text(`Category: ${nm}   Employees: ${d.n}   Avg score: ${f2(d.mean)}   Pool: BDT ${money(c.pool)}   Min score: ${c.minS}`,14,29);
+  doc.autoTable({startY:34,styles:{fontSize:c.K.length>6?6.5:8},headStyles:{fillColor:[47,125,91]},
+   head:[['Rank','ID','Name','Designation',...c.K.map(x=>x.name.slice(0,16)+' (pts)'),'Score','Grade','Share','Incentive (BDT)']],
+   body:d.sorted.map((r,i)=>[i+1,r.e.id,r.e.name,r.e.des,...c.K.map(x=>f2(r.p[x.id])),f2(r.score),r.g[0],(r.share*100).toFixed(1)+'%',money(r.pay)])});
+  doc.setFontSize(8);doc.text('Criteria weights: '+c.K.map(x=>x.name+' '+x.w).join(', ')+'.',14,doc.lastAutoTable.finalY+7,{maxWidth:265});
+ });
+ return doc.output('arraybuffer');
+}
+function xlsFile(names){
+ const wb=XLSX.utils.book_new(),used=new Set(['Summary','Lists','Log','Criteria']),add=(rows,n)=>XLSX.utils.book_append_sheet(wb,XLSX.utils.aoa_to_sheet(rows),n);
+ const sum=[[S.sel.co],['Department',S.sel.dep],['Section',S.sel.sec],['Period',S.mo+' '+S.yr],['Report date',S.rd],[],['Category','Employees','Avg score','Incentive pool','Distributed']];
+ names.forEach(nm=>{const c=S.cats[nm],d=calc(c);sum.push([nm,d.n,+f2(d.mean),c.pool,Math.round(d.paid)])});
+ add(sum,'Summary');
+ names.forEach(nm=>{
+  const c=S.cats[nm],d=calc(c);let sn=nm.replace(/[\\\/?*\[\]:]/g,'').slice(0,28)||'Category',q=sn,z=1;while(used.has(q))q=sn+(++z);used.add(q);
+  add([['Category',nm],[ttl()],['Pool',c.pool,'Min score',c.minS],['Designations',...c.des],...c.K.map(k=>['Criterion',k.id,k.name,k.type,k.w,k.t,k.l,k.src,k.why||'']),[],
+   ['Rank','ID','Name','Designation',...c.K.map(k=>k.name),...c.K.map(k=>k.name+' (pts)'),'Score','Grade','Share %','Incentive (BDT)'],
+   ...d.sorted.map((r,i)=>{const e=r.e;return[i+1,e.id,e.name,e.des,...c.K.map(k=>e.v[k.id]||0),...c.K.map(k=>+f2(r.p[k.id])),+f2(r.score),r.g[0],+(r.share*100).toFixed(2),Math.round(r.pay)]})],q);
+ });
+ const ids=new Set(names.flatMap(nm=>S.cats[nm].E.map(e=>e.id)));
+ add([['Date','Criterion ID','ID','Qty','Found by','Note','Name','Criterion'],...S.log.filter(l=>ids.has(l.id)).sort((a,b)=>a.d.localeCompare(b.d)).map(l=>[l.d,l.k,l.id,l.q,l.by||'',l.note||'',who(l.id),critName(l.k)])],'Log');
+ add([['Category','Criterion','Type','Scoring rule','Weight','Why it is measured'],...names.flatMap(nm=>S.cats[nm].K.map(k=>[nm,k.name,KT[k.type]||k.type,rule(k),k.w,k.why||'']))],'Criteria');
+ const m=Math.max(1,...Object.values(S.lists).map(a=>a.length),Object.keys(S.D).length);
+ add([['Plant / Company','Department','Section','Found by'],...Array.from({length:m},(_,r)=>[S.lists.co[r]||'',Object.keys(S.D)[r]||'',S.lists.sec[r]||'',S.lists.by[r]||''])],'Lists');
+ return XLSX.write(wb,{type:'array',bookType:'xlsx'});
+}
+async function save(name,data){
+ let dl=null;try{dl=await claude.use('downloads')}catch(e){}
+ try{
+  if(dl)await dl.save({filename:name,data});
+  else{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([data]));a.download=name;a.click()}
+  $('st').textContent='Saved '+name;return true;
+ }catch(e){$('st').textContent=e&&e.code==='declined'?'Download cancelled.':'Download unavailable here.';return false}
+}
+async function dl(fmt){
+ const mode=$('dm').value,all=Object.keys(S.cats),mk=n=>fmt==='pdf'?pdfFile(n):xlsFile(n),st=safe(S.mo+'_'+S.yr);
+ $('st').textContent='';
+ if(mode==='sep'){for(const nm of all){if(!await save(`KPI_${safe(nm)}_${st}.${fmt}`,mk([nm])))break}}
+ else if(mode==='all')await save(`KPI_${safe(S.sel.dep)}_All_Categories_${st}.${fmt}`,mk(all));
+ else await save(`KPI_${safe(S.cur)}_${st}.${fmt}`,mk([S.cur]));
+}
+$('pdf').onclick=()=>dl('pdf');$('xls').onclick=()=>dl('xlsx');
+$('sh').onclick=async()=>{const u=location.href;try{if(navigator.share)await navigator.share({title:'KPI & Incentive Dashboard',url:u});else{await navigator.clipboard.writeText(u);$('sm').textContent='Link copied'}}catch(e){$('sm').textContent='Copy the address bar link to share.'}};
+$('fb').onclick=()=>{location.href='mailto:jobexperience01@gmail.com?subject='+encodeURIComponent('KPI & Incentive Dashboard feedback')};
+</script></body></html>
